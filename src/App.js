@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
 import Menu from "./Menu";
@@ -9,7 +10,19 @@ import green from "./green.png";
 
 function App() {
   return (
-    <div>
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 1,
+      }}
+    >
       <Header>
         <Menu />
         <h1>Header</h1>
@@ -19,23 +32,23 @@ function App() {
         <CardGrid>
           <Card style={{ background: "var(--purp)" }}>
             <h3>Some card</h3>
-            <img src={purp} />
+            <img src={purp} alt="" />
           </Card>
           <Card style={{ background: "var(--blue)" }}>
             <h3>Some card</h3>
-            <img src={blue} />
+            <img src={blue} alt="" />
           </Card>
           <Card style={{ background: "var(--black)" }}>
             <h3>Some card</h3>
-            <img src={black} />
+            <img src={black} alt="" />
           </Card>
           <Card style={{ background: "var(--green)" }}>
             <h3>Some card</h3>
-            <img src={green} />
+            <img src={green} alt="" />
           </Card>
         </CardGrid>
       </Container>
-    </div>
+    </motion.div>
   );
 }
 
